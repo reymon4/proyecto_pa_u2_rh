@@ -2,7 +2,10 @@ package com.example.demo.uce.modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 //Para la representación en la BD
@@ -15,6 +18,9 @@ public class Estudiante {
 	
 	@Id //Esta anotación es para definir la clave primaria
 	@Column (name="estu_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "estu_sec") //Creo la secuencia a través de una secuencia-> name
+	@SequenceGenerator (name= "estu_sec", sequenceName="estu_sec", allocationSize =1) //Secuencia de la PK
+	
 	private Integer id;
 	
 	@Column (name="estu_nombre")
@@ -34,7 +40,14 @@ public class Estudiante {
 	
 	
 	
+	
 	//Getters and Setters
+
+	@Override
+	public String toString() {
+		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", genero=" + genero
+				+ ", cedula=" + cedula + ", ciudad=" + ciudad + "]";
+	}
 
 	public Integer getId() {
 		return id;

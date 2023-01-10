@@ -6,10 +6,12 @@ import com.example.demo.uce.modelo.Estudiante;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Repository
+@Transactional
 public class EstudianteRepoImpl implements IEstudianteRepo{
-	@PersistenceContext
+	@PersistenceContext //Anotación para interactuar con la BD
 	private EntityManager entityManager;
 	
 	@Override

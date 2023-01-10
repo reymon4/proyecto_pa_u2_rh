@@ -1,8 +1,8 @@
-package com.example.demo.uce.repository;
+package com.example.demo.uce.service;
 
 import com.example.demo.uce.modelo.Estudiante;
 
-public interface IEstudianteRepo {
+public interface IEstudianteService {
 	
 	public void insertar(Estudiante estudiante);
 	
@@ -11,4 +11,5 @@ public interface IEstudianteRepo {
 	public Estudiante buscar(Integer id);
 	
 	public void eliminar(Integer id);
+
 }
