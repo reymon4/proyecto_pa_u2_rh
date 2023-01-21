@@ -1,10 +1,15 @@
 package com.example.demo;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.demo.uce.modelo.Ciudadano;
+import com.example.demo.uce.modelo.Empleado;
 import com.example.demo.uce.modelo.Estudiante;
 import com.example.demo.uce.service.IEstudianteService;
 
@@ -26,9 +31,21 @@ public class ProyectoPaU2RhApplication implements CommandLineRunner{
 		estu.setNombre("Bryan");
 		estu.setApellido("Hidalgo");
 		estu.setCiudad("Quito");
-		estu.setGenero("F");
+		estu.setGenero("M");
 		estu.setCedula("0620436841");
 		this.estuService.insertar(estu);
+		
+		
+		
+		Ciudadano ciu = new Ciudadano();
+		ciu.setNombre("Reymon");
+		ciu.setApellido("Hidalgo");
+
+		
+		Empleado empl =  new Empleado();
+		empl.setSalario(new BigDecimal(2000));
+		empl.setFechaIngreso(LocalDateTime.now());
+		empl.setCiudadano(ciu);
 //		System.out.println(this.estuService.buscar(2));
 //		this.estuService.eliminar(3);
 		
