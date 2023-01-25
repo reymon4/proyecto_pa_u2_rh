@@ -24,13 +24,19 @@ public class Habitacion {
 	@Column(name="hab_numero")
 	private String numero;
 
-	@ManyToOne(cascade = CascadeType.ALL) //muchos a uno
+	//@ManyToOne(cascade = CascadeType.MERGE) //muchos a uno
+	@ManyToOne
 	@JoinColumn(name="hab_id_hotel") //Nombre de la tabla con la que se va a relacionar
 	private Hotel hotel;
 	
 
 	//Getters and Setters
 		
+	@Override
+	public String toString() {
+		return "Habitacion [id=" + id + ", numero=" + numero +"]";
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -45,6 +51,14 @@ public class Habitacion {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 	
 	
